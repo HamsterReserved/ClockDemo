@@ -11,6 +11,7 @@
             android:layout_width="@dimen/input_text_width"
             android:layout_height="wrap_content"
             android:id="@+id/timer_hour_input"
+            android:text="0"
             android:inputType="number"/>
 
         <TextView
@@ -22,6 +23,7 @@
             android:layout_width="@dimen/input_text_width"
             android:layout_height="wrap_content"
             android:id="@+id/timer_minute_input"
+            android:text="0"
             android:inputType="number"/>
 
         <TextView
@@ -33,6 +35,7 @@
             android:layout_width="@dimen/input_text_width"
             android:layout_height="wrap_content"
             android:id="@+id/timer_second_input"
+            android:text="0"
             android:inputType="number"/>
     </LinearLayout>
 
@@ -46,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start"
+            android:enabled="false"
             android:layout_weight="1"
             android:id="@+id/start_timer_button"/>
 
@@ -60,7 +64,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resume"
+            android:text="Reset"
             android:id="@+id/reset_timer_button"
             android:layout_weight="1"
             android:visibility="gone"/>
