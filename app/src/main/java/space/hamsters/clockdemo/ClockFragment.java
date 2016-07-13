@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by hamster on 16/7/12.
@@ -22,7 +23,7 @@ public class ClockFragment extends PageFragment {
         @Override
         public void run() {
             Date date = new Date(System.currentTimeMillis());
-            mTimeText.setText(new SimpleDateFormat("HH:mm:ss").format(date));
+            mTimeText.setText(new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(date));
             mRootView.postDelayed(this, 500);
         }
     };
