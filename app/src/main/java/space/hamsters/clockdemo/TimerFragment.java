@@ -152,8 +152,8 @@ public class TimerFragment extends PageFragment {
      */
     private void updateRemainingTime() {
         int hour = mRemainingSeconds / 3600;
-        int minute = mRemainingSeconds / 60;
-        int second = mRemainingSeconds % 60;
+        int minute = (mRemainingSeconds - hour * 3600) / 60;
+        int second = mRemainingSeconds - hour * 3600 - minute * 60;
 
         mHourEditText.setText(String.valueOf(hour));
         mMinuteEditText.setText(String.valueOf(minute));
