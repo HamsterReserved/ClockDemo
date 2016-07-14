@@ -43,7 +43,7 @@ public class TimerFragment extends PageFragment {
                     mRootView.postDelayed(this, 1000);
                 } else {
                     mState = TimerState.TIMER_STOPPED;
-                    updateButtonVisibility();
+                    updateButtonApperaance();
                     AlertDialog.Builder builder = new AlertDialog.Builder(mRootView.getContext());
                     builder.setTitle("Countdown Timer");
                     builder.setMessage("Time up!");
@@ -61,12 +61,12 @@ public class TimerFragment extends PageFragment {
                 case TIMER_RUNNING:
                     /* RUNNING -> PAUSED */
                     mState = TimerState.TIMER_PAUSED;
-                    updateButtonVisibility();
+                    updateButtonApperaance();
                     break;
                 case TIMER_PAUSED:
                     /* PAUSED -> RUNNING */
                     mState = TimerState.TIMER_RUNNING;
-                    updateButtonVisibility();
+                    updateButtonApperaance();
                     mRootView.postDelayed(decreaseOneSecond, 1000);
                     break;
             }
@@ -77,7 +77,7 @@ public class TimerFragment extends PageFragment {
         @Override
         public void onClick(View v) {
             mState = TimerState.TIMER_STOPPED;
-            updateButtonVisibility();
+            updateButtonApperaance();
             mRemainingSeconds = 0;
             updateRemainingTime();
         }
@@ -91,7 +91,7 @@ public class TimerFragment extends PageFragment {
                     + Integer.parseInt(mSecondEditText.getText().toString());
             if (mRemainingSeconds > 0) {
                 mState = TimerState.TIMER_RUNNING;
-                updateButtonVisibility();
+                updateButtonApperaance();
                 mRootView.postDelayed(decreaseOneSecond, 1000);
             }
         }
@@ -137,7 +137,7 @@ public class TimerFragment extends PageFragment {
         mResetButton.setOnClickListener(resetListener);
 
         mState = TimerState.TIMER_STOPPED;
-        updateButtonVisibility();
+        updateButtonApperaance();
 
         return mRootView;
     }
@@ -163,7 +163,7 @@ public class TimerFragment extends PageFragment {
     /**
      * Update button visibility and enable state by timer state
      */
-    private void updateButtonVisibility() {
+    private void updateButtonApperaance() {
         switch (mState) {
             case TIMER_STOPPED:
                 mPauseResumeButton.setVisibility(View.GONE);
