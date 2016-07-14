@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by hamster on 16/7/13.
  *
- * Adapter for lists containing single lines of text
+ * Adapter for lists containing single lines of text (inverse display order)
  */
 public class SingleLineListAdapter extends
         RecyclerView.Adapter<SingleLineListAdapter.SingleLineViewHolder> {

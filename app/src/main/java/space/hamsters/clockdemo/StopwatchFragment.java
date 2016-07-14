@@ -61,7 +61,7 @@ public class StopwatchFragment extends PageFragment {
     private Button.OnClickListener startListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            startTimer();
+            startStopwatch();
         }
     };
 
@@ -76,7 +76,7 @@ public class StopwatchFragment extends PageFragment {
                     break;
                 case STOPWATCH_PAUSED:
                     /* PAUSED -> RUNNING */
-                    startTimer();
+                    startStopwatch();
                     break;
             }
         }
@@ -101,7 +101,7 @@ public class StopwatchFragment extends PageFragment {
                     /* Reset */
                     mListAdapter.notifyItemRangeRemoved(0, mListAdapter.getItemCount());
                     mListAdapter.clear();
-                    stopTimer();
+                    stopStopwatch();
                     break;
             }
         }
@@ -131,7 +131,7 @@ public class StopwatchFragment extends PageFragment {
                 LinearLayoutManager.VERTICAL,
                 false));
 
-        stopTimer();
+        stopStopwatch();
 
         return mRootView;
     }
@@ -181,14 +181,14 @@ public class StopwatchFragment extends PageFragment {
         mMillisText.setText(String.valueOf(milli));
     }
 
-    private void startTimer() {
+    private void startStopwatch() {
         mState = StopwatchState.STOPWATCH_RUNNING;
         updateButtonAppearance();
         startMillis = System.currentTimeMillis();
         mRootView.postDelayed(displayElapsedTime, DISPLAY_UPDATE_INTERVAL_MS);
     }
 
-    private void stopTimer() {
+    private void stopStopwatch() {
         elapsedMillis = 0L;
         startMillis = 0L;
         updateTimeDisplay(0);
